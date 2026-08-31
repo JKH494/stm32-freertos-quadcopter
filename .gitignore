@@ -1,0 +1,42 @@
+# Keil / ARMCC build outputs
+Objects/
+Listings/
+build/
+bin/
+obj/
+out/
+*.o
+*.obj
+*.d
+*.crf
+*.axf
+*.elf
+*.map
+*.lnp
+*.lst
+*.hex
+*.bin
+*.dep
+*.sct
+*.htm
+*.html
+*.log
+
+# Keil user state
+*.uvguix.*
+*.uvoptx
+*.w0100
+*.merge
+
+# EIDE / editor-generated dependencies and state
+.cmsis/
+.pack/
+.vscode/
+.eide/log/
+.eide.usr.ctx.json
+
+# Temporary files
+__pycache__/
+*.pyc
+*.bak
+*~
