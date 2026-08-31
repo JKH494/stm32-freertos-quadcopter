@@ -4,6 +4,17 @@
 
 本项目重点不是简单移植例程，而是在已有课程工程基础上完成 BMP280 气压计接入、定高控制、双向遥测和通信安全逻辑改进。
 
+## 实物与 PCB
+
+| 飞控板实物（含 BMP280） | 飞控板 PCB 版图 |
+| --- | --- |
+| ![飞控板实物](docs/images/flight-controller-assembled.jpg) | ![飞控板 PCB 版图](docs/images/flight-controller-pcb-layout.png) |
+
+立创 EDA 专业版工程：
+
+- `hardware/flight-controller/stm32_quadcopter.eprj2`：飞控板工程
+- `hardware/remote-controller/quadcopter_remote.epro2`：无人机手柄遥控器工程
+
 ## 主要功能
 
 - FreeRTOS 多任务调度：飞行控制、无线通信、状态指示和电源管理
@@ -19,7 +30,9 @@
 ```text
 .
 ├── P01_flight_hal/       # 飞控端：传感器、姿态/PID、电机与无线通信
-└── P02_remote_hal/       # 遥控器端：摇杆、按键、显示与双向通信
+├── P02_remote_hal/       # 遥控器端：摇杆、按键、显示与双向通信
+├── docs/images/          # 实物照片与 PCB 版图
+└── hardware/             # 飞控板与遥控器的立创 EDA 工程
 ```
 
 关键代码：
@@ -57,6 +70,8 @@ MPU6050/BMP280 → 姿态与高度控制 → 电机 PWM
 
 - 这是课程/参考工程基础上的二次开发，不将底层模板和第三方组件声明为个人原创。
 - 个人工作重点为 BMP280 驱动、定高控制、遥测回传、通信超时保护和任务逻辑调整。
+- PCB 文件来自课程/复刻与已验证参考资料，用于说明硬件实现，不声明整套硬件完全原创。
+- 资料中存在多个硬件和固件版本，接线或打板前应以实际烧录固件为准，重新核对引脚与原理图。
 - 飞行器参数与机架、电机、桨叶和传感器安装有关，实际使用前必须拆桨调试并重新校准。
 - 源文件包含 GBK 与 UTF-8 两种历史编码，仓库保持原始编码以兼容现有 Keil 工程。
 
